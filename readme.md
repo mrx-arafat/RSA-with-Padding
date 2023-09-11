@@ -10,14 +10,14 @@ What happens if you have a small exponent in RSA encryption? The plaintext is pa
 
 #### Solution
 
-1. **Research**: Spent a considerable amount of time researching resources to solve this challenge. Found the solution in a [Cryptography StackExchange comment](#).
+1. **Research**: Spent a considerable amount of time researching resources to solve this challenge. Found the solution in a [Cryptography StackExchange comment](https://crypto.stackexchange.com/questions/6770/cracking-an-rsa-with-no-padding-and-very-small-e/6771#6771).
 2. **Understanding the Math**: Without padding, encryption of \( m \) is \( m^e \mod n \). If \( e = 3 \) and \( m \) is short, then \( m^3 \) could be an integer smaller than \( n \), making the modulo operation a no-operation.
 3. **Algorithm**: With a short \( m \) slightly wider than \( n^{1/e} \), we are given \( c = m^e \mod n \) and can find \( k \) such that \( k \times n + c \) is an \( e^{th} \) power. Then \( m = (k \times n + c)^{1/e} \).
 4. **Python Script**: A Python script is used to search through thousands of values for \( k \) until we find one that contains the start of the flag. The precision is then increased to get the entire flag.
 
 #### Flag
 
-The flag for this challenge is `picoCTF{e_sh0u1d_b3_lArg3r_0b39bbb1}`.
+The flag for this challenge is `picoCTF{e_sh0u1d_b3_lArg3r_0b39bbb1}`
 
 #### Additional Resources
 
